@@ -1,0 +1,21 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Python
+__pycache__/
+*.pyc
+.python-version
+venv/
+.venv/
+
+# Node (in case anyone adds it later)
+node_modules/
+
+# Local UI scratch
+ui/.cache/

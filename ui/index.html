@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#07090d">
+  <title>EEELunarRover Operator Console</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">&#9790;</span>
+      <span class="brand-name">EEELunarRover</span>
+      <span class="brand-sub">Operator Console</span>
+    </div>
+    <div class="indicators">
+      <div class="indicator" id="gamepad-ind">
+        <span class="dot bad" id="gamepad-dot"></span>
+        <span class="ind-label">Gamepad</span>
+        <span class="ind-value" id="gamepad-value">none</span>
+      </div>
+      <div class="indicator">
+        <span class="ind-label">State</span>
+        <span class="ind-value" id="state-value">unknown</span>
+      </div>
+      <div class="indicator">
+        <span class="dot bad" id="conn-dot"></span>
+        <span class="ind-value" id="conn-value">offline</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero: the classification result is the centrepiece -->
+    <section class="card hero" id="hero">
+      <div class="label">Classification</div>
+      <div class="hero-type" id="cls-type">awaiting scan</div>
+      <div class="hero-age" id="cls-age">drive to a rock and scan</div>
+      <div class="hero-reason" id="cls-reason"></div>
+    </section>
+
+    <!-- Raw sensor telemetry -->
+    <section class="tiles">
+      <div class="tile is-none" id="tile-age">
+        <div class="label">Age signal</div>
+        <div class="tile-value" id="sens-age">-</div>
+        <div class="tile-unit">radio</div>
+      </div>
+      <div class="tile is-none" id="tile-ir">
+        <div class="label">Infrared</div>
+        <div class="tile-value" id="sens-ir">-</div>
+        <div class="tile-unit">pulse rate</div>
+      </div>
+      <div class="tile is-none" id="tile-us">
+        <div class="label">Ultrasound</div>
+        <div class="tile-value" id="sens-us">-</div>
+        <div class="tile-unit">40 kHz</div>
+      </div>
+      <div class="tile is-none" id="tile-mag">
+        <div class="label">Magnet</div>
+        <div class="tile-value" id="sens-mag">-</div>
+        <div class="tile-unit">field direction</div>
+      </div>
+    </section>
+
+    <!-- Control: gamepad primary, on-screen D-pad as labelled fallback -->
+    <section class="card control">
+      <div class="control-primary">
+        <div class="gamepad-status" id="gamepad-status">
+          <span class="gp-dot"></span>
+          <span class="gp-text" id="gp-text">No gamepad detected</span>
+          <span class="gp-id" id="gp-id"></span>
+        </div>
+
+        <div class="speed">
+          <div class="speed-head">
+            <span class="label">Speed limit</span>
+            <span class="speed-val" id="speed-val">50%</span>
+          </div>
+          <input type="range" id="speed" min="0" max="100" value="50">
+        </div>
+
+        <div class="drive-readout" id="drive-readout">L 0&nbsp;&nbsp;&nbsp;R 0</div>
+      </div>
+
+      <div class="fallback">
+        <span class="label">Manual fallback</span>
+        <div class="mini-dpad">
+          <button class="m-fwd"   id="btn-fwd"   title="Forward">&#9650;</button>
+          <button class="m-left"  id="btn-left"  title="Left">&#9664;</button>
+          <button class="m-stop"  id="btn-stop"  title="Stop">&#9632;</button>
+          <button class="m-right" id="btn-right" title="Right">&#9654;</button>
+          <button class="m-rev"   id="btn-rev"   title="Reverse">&#9660;</button>
+        </div>
+        <span class="fallback-keys">WASD / arrows</span>
+      </div>
+    </section>
+
+    <!-- Actions -->
+    <section class="actions">
+      <button class="btn-primary" id="btn-scan">Scan rock</button>
+      <button class="btn-ghost" id="btn-save">Save reading</button>
+    </section>
+
+    <!-- Saved readings -->
+    <section class="card saved">
+      <div class="saved-head">
+        <span class="label">Saved readings</span>
+        <button class="link-btn" id="btn-clear">clear</button>
+      </div>
+      <ul id="saved-list"></ul>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
