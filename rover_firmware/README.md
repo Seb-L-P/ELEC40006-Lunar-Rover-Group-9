@@ -36,7 +36,7 @@ Open `src/main.cpp` and review the **Configuration** block near the top:
 | --- | --- | --- |
 | `ssid` / `pass` | `EEERover` / `exhibition` | Lab WiFi credentials. Override if testing on a hotspot. |
 | `groupNumber` | `0` | Your group number. This sets a static IP of `192.168.0.<groupNumber+1>` on the lab network. |
-| `LEFT_DIR_PIN`, `LEFT_PWM_PIN`, `RIGHT_DIR_PIN`, `RIGHT_PWM_PIN` | `4`, `3`, `12`, `11` | Whichever pins you wired to the H-bridge module. **Avoid 5, 7, 10** (reserved by the WiFi shield). |
+| `LEFT_DIR_PIN`, `LEFT_PWM_PIN`, `RIGHT_DIR_PIN`, `RIGHT_PWM_PIN` | `12`, `6`, `4`, `9` | Set to the current dual H-bridge wiring (see `../hardware/pin_map.md`). Change only if the rover is rewired. **Avoid 5, 7, 10** (reserved by the WiFi shield). |
 | `DRIVE_WATCHDOG_MS` | `500` | Time without a `/drive` heartbeat before motors auto-stop. Don't reduce below the UI heartbeat interval (150 ms) plus margin. |
 | `SCAN_DURATION_MS` | `600` | Window over which `/scan` integrates measurements. Increase to count more IR pulses for better Poisson rate discrimination. |
 
