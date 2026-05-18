@@ -270,7 +270,7 @@ This is the part that has to actually work.
 - Group number (so I know the static IP).
 - Confirmation of the API contract in §3 - or proposed changes.
 - A debug pin/LED I can toggle via `/drive` before motors are wired.
-- Their preferred git workflow (single repo with `firmware/` + `ui/` folders? two repos?).
+- Their preferred git workflow (single repo with `rover_firmware/` + `UI/` folders? two repos?).
 
 ### 6.5 Things they need from me
 
@@ -295,7 +295,7 @@ Decisions that affect more than just the controller subsystem. To be resolved at
 
 - [ ] Walk this doc through the embedded lead in person. Lock §3 (the API contract).
 - [ ] Get the starter code flashed and reachable on my own laptop. I have to be able to flash a Metro before I can claim my subsystem works.
-- [ ] Scaffold `ui/` under this folder: `index.html`, `app.js`, `styles.css`, `mock_server.py`.
+- [ ] Scaffold `UI/` under this folder: `index.html`, `app.js`, `styles.css`, `mock_server.py`.
 - [ ] Write the mock server first (Python, ~30 lines, returns the §3 JSON shapes).
 - [ ] Build the driving panel + WASD keys against the mock server.
 - [ ] Bring the mocked, working UI to the team meeting so people can see the contract running, not just read it.

@@ -9,7 +9,7 @@ Two routes, both target the same `src/main.cpp`.
 ### PlatformIO (recommended)
 
 1. Install [VS Code](https://code.visualstudio.com/) and the [PlatformIO extension](https://platformio.org/install/ide?install=vscode).
-2. Open this `firmware/` folder.
+2. Open this `rover_firmware/` folder.
 3. Plug the Metro M0 into the laptop via USB.
 4. Click the **Build** (✓) and then **Upload** (→) buttons in the bottom toolbar, or run from the integrated terminal:
 
@@ -71,7 +71,7 @@ To connect the operator UI, open it with the rover's IP in the API query string:
 http://localhost:8080/?api=http://192.168.0.<groupNumber+1>
 ```
 
-(The mock server at `../ui/mock_server.py` is no longer needed once real firmware is running, but you can still serve the UI files with it if you prefer.)
+(The mock server at `../UI/mock_server.py` is no longer needed once real firmware is running, but you can still serve the UI files with it if you prefer.)
 
 ## Plugging in real sensors
 
@@ -101,8 +101,8 @@ Each sensor owner should be able to develop their function in isolation, hand it
 
 ## Files
 
-```
-firmware/
+```text
+rover_firmware/
 ├── platformio.ini       PlatformIO project config + library deps
 ├── README.md            this file
 └── src/

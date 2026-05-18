@@ -4,7 +4,7 @@ Hardware testing record for the EEELunarRover firmware.
 
 **Hardware under test:** Adafruit Metro M0 Express + WINC1500 WiFi shield
 **Toolchain:** PlatformIO 6.1.19, framework-arduino-samd-adafruit 1.7.16, gcc-arm-none-eabi 9.3.1
-**Firmware:** `firmware/src/main.cpp` (v0.2.0)
+**Firmware:** `rover_firmware/src/main.cpp` (v0.2.0)
 
 ---
 

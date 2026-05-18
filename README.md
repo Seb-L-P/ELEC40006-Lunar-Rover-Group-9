@@ -1,19 +1,18 @@
-# EEELunarRover - Controller and Firmware
+# EEELunarRover - Group 9
 
-Operator control system for the EEELunarRover, ELEC40006 Electronics Design Project, Group 9.
-
-This part of the project is the rover's **brain and remote control**: the microcontroller firmware that runs on the rover, and the web-based operator console used to drive it and read its sensors. The four analogue sensor subsystems (radio, infrared, ultrasound, magnetic) are owned by other group members and plug in through the interfaces defined here.
+ELEC40006 Electronics Design Project. A remotely operated lunar rover that drives across an arena and classifies rocks by their age and type.
 
 ## Repository layout
 
 | Path | What it is |
 | --- | --- |
-| `firmware/` | Metro M0 firmware: WiFi HTTP server, motor control, sensor hooks |
-| `ui/` | Browser-based operator console (HTML/CSS/JS) plus a mock rover server |
+| `rover_firmware/` | Metro M0 firmware: WiFi HTTP server, motor control, sensor hooks |
+| `UI/` | Browser-based operator console (HTML/CSS/JS) plus a mock rover server |
+| `hardware/` | Component datasheets and the pin map |
+| `CONTROLLER_PLAN.md` | HTTP API contract and controller subsystem design |
 | `PROJECT_SUMMARY.md` | Project brief, objectives, constraints, rock classification |
-| `CONTROLLER_PLAN.md` | The HTTP API contract and controller subsystem design |
-| `firmware/FIRMWARE_GUIDE.md` | Section-by-section walkthrough of the firmware |
-| `firmware/TEST_LOG.md` | Hardware test record |
+
+The operator control and firmware are built and hardware-tested. The four analogue sensor subsystems (radio, infrared, ultrasound, magnetic) are in progress by other group members and plug into the firmware through its `readX()` hooks.
 
 ## How it works
 
@@ -21,7 +20,7 @@ The operator runs the console in a browser. It talks to the rover over WiFi usin
 
 ```text
 Operator browser  <--- WiFi / HTTP --->  Metro M0 firmware
-   (ui/)                                   (firmware/)
+   (UI/)                                  (rover_firmware/)
                                                |
                                        motors and sensors
 ```
@@ -33,7 +32,7 @@ The firmware exposes five endpoints (`/info`, `/status`, `/drive`, `/stop`, `/sc
 ### Operator console (no hardware needed)
 
 ```bash
-cd ui
+cd UI
 python3 mock_server.py
 ```
 
@@ -41,10 +40,10 @@ Open <http://localhost:8080/>. The mock server simulates a rover so the UI can b
 
 ### Firmware
 
-Open `firmware/` in VS Code with the PlatformIO extension, or from the command line:
+Open `rover_firmware/` in VS Code with the PlatformIO extension, or from the command line:
 
 ```bash
-cd firmware
+cd rover_firmware
 pio run            # build
 pio run -t upload  # flash a connected Metro M0
 ```
@@ -59,7 +58,7 @@ pio run -t upload  # flash a connected Metro M0
 | Operator UI | Working; gamepad, keyboard and on-screen control |
 | Sensors | Stubbed; awaiting the four analogue subsystems |
 
-See `firmware/TEST_LOG.md` for the detailed hardware test record.
+See `rover_firmware/TEST_LOG.md` for the detailed hardware test record.
 
 ## Rock classification
 

@@ -211,9 +211,9 @@ In rough order:
 
 ## 5. Files you own as the embedded lead
 
-- `firmware/src/main.cpp` - all the firmware
-- `firmware/platformio.ini` - build config and library deps
-- `firmware/README.md` - build/flash instructions
-- `firmware/FIRMWARE_GUIDE.md` - this file
+- `rover_firmware/src/main.cpp` - all the firmware
+- `rover_firmware/platformio.ini` - build config and library deps
+- `rover_firmware/README.md` - build/flash instructions
+- `rover_firmware/FIRMWARE_GUIDE.md` - this file
 
-The UI side (`../ui/`) and the project-level docs (`../CONTROLLER_PLAN.md`, `../PROJECT_SUMMARY.md`) belong to the UI lead. If you propose changes to the HTTP contract, take it up with them - both files have to move in lockstep.
+The UI side (`../UI/`) and the project-level docs (`../CONTROLLER_PLAN.md`, `../PROJECT_SUMMARY.md`) belong to the UI lead. If you propose changes to the HTTP contract, take it up with them - both files have to move in lockstep.

@@ -7,7 +7,7 @@ Static HTML/JS/CSS operator interface for the EEELunarRover. Talks to the rover 
 The mock server hosts the UI and a fake rover API on the same port, so no CORS pain.
 
 ```bash
-cd ui
+cd UI
 python3 mock_server.py
 ```
 
