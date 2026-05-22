@@ -48,6 +48,11 @@ const int RIGHT_DIR_PIN  = 4;    // right motor direction
 const int RIGHT_PWM_PIN  = 9;    // right motor enable (PWM)
 const int DEBUG_LED_PIN  = LED_BUILTIN;
 
+// IR subsystem: digital pulse input from the SFH 300 -> MCP6292 amp + comparator
+// front end (see ../hardware/ir_sensor_build.md). Pin 2 is interrupt-capable and
+// clear of the WiFi shield (5, 7, 10) and radio UART (0).
+const int IR_PULSE_PIN   = 2;
+
 // Drive watchdog: if no /drive heartbeat for this long, motors auto-stop.
 const unsigned long DRIVE_WATCHDOG_MS = 500;
 
@@ -151,11 +156,42 @@ static AgeResult readAge() {
   return { String("#317"), true };
 }
 
+// ---- IR pulse counter ----
+// The front end delivers one digital rising edge per detected 50 us IR flash.
+// We count edges over a rolling SCAN_DURATION_MS window and report the rate in
+// pulses/second. The rates to tell apart are ~312 and ~547 s^-1; counting over
+// 600 ms separates them by many standard deviations, so no calibration is
+// needed. The window runs continuously so /status shows a live rate and /scan
+// returns the most recent one.
+volatile unsigned long irEdgeCount  = 0;
+static unsigned long    irWindowStart = 0;
+static int              lastIrRateHz  = 0;
+static bool             irRateValid   = false;
+
+static void irPulseISR() { irEdgeCount++; }
+
+// Close a counting window every SCAN_DURATION_MS and convert count -> rate.
+// Call frequently from loop().
+static void updateIRWindow() {
+  unsigned long now = millis();
+  if (now - irWindowStart >= SCAN_DURATION_MS) {
+    noInterrupts();
+    unsigned long count = irEdgeCount;
+    irEdgeCount = 0;
+    interrupts();
+    unsigned long elapsed = now - irWindowStart;
+    irWindowStart = now;
+    if (elapsed > 0) {
+      lastIrRateHz = (int)((count * 1000UL) / elapsed);
+      irRateValid  = true;
+    }
+  }
+}
+
 struct IRResult { int rateHz; bool valid; };
 static IRResult readIR() {
-  // TODO (IR owner): return pulses per second over the latest measurement
-  // window. The rates to distinguish are ~312 and ~547 s^-1.
-  return { 547, true };
+  // Rolling-window rate from the hardware pulse counter on IR_PULSE_PIN.
+  return { lastIrRateHz, irRateValid };
 }
 
 struct UltrasoundResult { bool present; bool valid; };
@@ -341,6 +377,9 @@ void setup()
   pinMode(LEFT_PWM_PIN,   OUTPUT);
   pinMode(RIGHT_DIR_PIN,  OUTPUT);
   pinMode(RIGHT_PWM_PIN,  OUTPUT);
+  pinMode(IR_PULSE_PIN,   INPUT);
+  attachInterrupt(digitalPinToInterrupt(IR_PULSE_PIN), irPulseISR, RISING);
+  irWindowStart = millis();
   digitalWrite(DEBUG_LED_PIN, LOW);
   stopMotors();
 
@@ -403,6 +442,8 @@ void loop()
   }
 
   server.handleClient();
+
+  updateIRWindow();
 
   // --- 500 ms drive watchdog ---
   if ((driveLeft != 0 || driveRight != 0)

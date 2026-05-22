@@ -26,6 +26,6 @@ To be assigned as each analogue subsystem is built. Keep clear of pins 5, 7, 10.
 | Subsystem | Metro pin | Notes |
 | --- | --- | --- |
 | Radio (age) | D0 (UART RX) | suggested; receives the demodulated UART signal |
-| Infrared | TBD | |
+| Infrared | D2 | comparator output from the SFH 300 + MCP6292 front end; firmware counts rising edges (see `ir_sensor_build.md`) |
 | Ultrasound | TBD | |
 | Magnetic | TBD | |
