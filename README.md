@@ -8,7 +8,8 @@ ELEC40006 Electronics Design Project. A remotely operated lunar rover that drive
 | --- | --- |
 | `rover_firmware/` | Metro M0 firmware: WiFi HTTP server, motor control, sensor hooks |
 | `UI/` | Browser-based operator console (HTML/CSS/JS) plus a mock rover server |
-| `hardware/` | Component datasheets and the pin map |
+| `hardware/` | Component datasheets, the pin map, and the **[bill of materials](hardware/BOM.md)** |
+| `mech/` | **[Rover layout, 3D-printed sensor mounts, and what to order](mech/README.md)** |
 | `CONTROLLER_PLAN.md` | HTTP API contract and controller subsystem design |
 | `PROJECT_SUMMARY.md` | Project brief, objectives, constraints, rock classification |
 
