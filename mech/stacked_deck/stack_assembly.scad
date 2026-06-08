@@ -14,7 +14,7 @@ use <coil_support.scad>
 
 DECK_T = 4;
 GAP    = 50;                   // ~5 cm between the decks (matches pillar.scad PILLAR_H)
-PILLARS = [[12,12],[83,12],[12,192],[83,192]];
+PILLARS = [[12,24],[83,24],[12,192],[83,192]];   // front pillars clear the motor slots
 top_z   = DECK_T + GAP;
 
 FOOT_Y  = 188;                 // coil-support foot centre on the deck

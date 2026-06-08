@@ -25,7 +25,8 @@ CORNER = 6;
 CUT_Y  = 112;   // seam centre
 LAP    = 20;    // overlap length of the half-lap
 
-PILLAR_HOLES     = [[12,12],[83,12],[12,192],[83,192]];
+// Front pillars at y=24 to clear the motor-slot cut-outs (y 3.5-16.5); rear at y=192.
+PILLAR_HOLES     = [[12,24],[83,24],[12,192],[83,192]];
 COIL_MOUNT_HOLES = [[40,179],[55,179],[40,197],[55,197]];
 LAP_HOLES        = [[30,CUT_Y],[65,CUT_Y]];   // 2 screws clamp the overlap
 
