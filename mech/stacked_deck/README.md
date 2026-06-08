@@ -21,6 +21,13 @@ A full deck is **204 mm**, longer than the 200 mm printer, so each deck prints
 as **half A + half B** (both inside the ~15–18 cm target) joined by the splice
 bar. Two identical decks → **either board can be on top**.
 
+## How the parts connect
+
+| Pillar ↔ decks | Half A ↔ half B |
+|---|---|
+| ![pillar joint](preview/joint_exploded.png) | ![seam joint](preview/seam_exploded.png) |
+| A short M3 screw through each deck's corner hole self-taps into the pillar end. | The halves butt together; a splice bar screws underneath, 2 screws into each half. |
+
 ## How it goes together
 
 1. Join `deck_half_A` (front, ~112 mm) + `deck_half_B` (rear, ~92 mm) with 2

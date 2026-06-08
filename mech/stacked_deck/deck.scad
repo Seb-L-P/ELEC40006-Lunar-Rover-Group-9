@@ -26,6 +26,9 @@ PILLAR_HOLES = [[12,12],[83,12],[12,192],[83,192]];
 // Coil-support foot holes near the rear edge (added) - 4x M3 at +/-7.5, +/-9
 // about (47.5, 188), matching coil_support.scad's foot.
 COIL_MOUNT_HOLES = [[40,179],[55,179],[40,197],[55,197]];
+// Seam holes either side of the CUT_Y split: the splice bar bolts under here
+// to join half A + half B. 2 go to A (y=106), 2 to B (y=118).
+SEAM_HOLES = [[30,106],[65,106],[30,118],[65,118]];
 
 // Exact holes from chassis.svg  [x, y, dia]
 HOLES = [[47.5,200,4],[22,189.8,7.8],[79.3,160,3.1],[79.3,187.9,3.1],
@@ -51,6 +54,7 @@ module deck_full() {
         for (c = CUTS)  translate([c[0],c[1],-eps]) cube([c[2], c[3], DECK_T+2*eps]);
         for (p = PILLAR_HOLES)     translate([p[0],p[1],-eps]) cylinder(d = M3_CLEAR, h = DECK_T+2*eps, $fn = 24);
         for (p = COIL_MOUNT_HOLES) translate([p[0],p[1],-eps]) cylinder(d = M3_CLEAR, h = DECK_T+2*eps, $fn = 24);
+        for (p = SEAM_HOLES)       translate([p[0],p[1],-eps]) cylinder(d = M3_CLEAR, h = DECK_T+2*eps, $fn = 24);
     }
 }
 
