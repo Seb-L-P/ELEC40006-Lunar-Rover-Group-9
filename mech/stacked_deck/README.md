@@ -10,28 +10,27 @@ plus a **braced coil ring + sensor tray** that screws onto a deck.
 
 | STL | Print qty | Size | Notes |
 |---|---|---|---|
-| `stl/deck_half_A.stl` | ×2 | ~112 × 95 mm | front half of a deck (has the motor slots) |
-| `stl/deck_half_B.stl` | ×2 | ~92 × 95 mm | rear half of a deck |
-| `stl/splice.stl` | ×2–4 | 18 × 60 mm | bolts under the seam to join A+B into one deck |
+| `stl/deck_half_A.stl` | ×2 | ~122 × 95 mm | front half + bottom overlap ledge (motor slots) |
+| `stl/deck_half_B.stl` | ×2 | ~102 × 95 mm | rear half + top overlap ledge (**print upside-down**) |
 | `stl/pillar.stl` | ×4 | Ø10 × 50 mm | corner stacking pillar (~5 cm deck gap) |
 | `stl/coil_support.stl` | ×1 | ~127 × 91 mm | braced ring (coil) + perfboard tray |
 | `stl/deck_full.stl` | — | 204 × 95 mm | **reference/viewing only — too long to print whole** |
 
 A full deck is **204 mm**, longer than the 200 mm printer, so each deck prints
-as **half A + half B** (both inside the ~15–18 cm target) joined by the splice
-bar. Two identical decks → **either board can be on top**.
+as **half A + half B** (both inside the ~15–18 cm target) that **overlap** at a
+half-lap and bolt together. Two identical decks → **either board can be on top**.
 
 ## How the parts connect
 
 | Pillar ↔ decks | Half A ↔ half B |
 |---|---|
 | ![pillar joint](preview/joint_exploded.png) | ![seam joint](preview/seam_exploded.png) |
-| A short M3 screw through each deck's corner hole self-taps into the pillar end. | The halves butt together; a splice bar screws underneath, 2 screws into each half. |
+| A short M3 screw through each deck's corner hole self-taps into the pillar end. | The two halves **overlap** (half-lap) and 2 M3 screws clamp them into one flush deck — no extra part. |
 
 ## How it goes together
 
-1. Join `deck_half_A` (front, ~112 mm) + `deck_half_B` (rear, ~92 mm) with 2
-   `splice` bars (M3) → one deck. Do it twice.
+1. Overlap `deck_half_A` (front) and `deck_half_B` (rear) at the half-lap and
+   clamp with 2 M3 screws (+ nuts) → one flush deck. Do it twice.
 2. Stand the **4 pillars** between the decks at the corner holes. Drive a short
    **M3 × 8–10 mm screw through each deck's corner hole into the pillar end** —
    it self-taps into the pillar's Ø2.5 pilot and clamps the deck. (Sturdier
