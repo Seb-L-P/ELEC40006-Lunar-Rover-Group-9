@@ -13,7 +13,7 @@ use <pillar.scad>
 use <coil_support.scad>
 
 DECK_T = 4;
-GAP    = 45;
+GAP    = 50;                   // ~5 cm between the decks (matches pillar.scad PILLAR_H)
 PILLARS = [[12,12],[83,12],[12,192],[83,192]];
 top_z   = DECK_T + GAP;
 

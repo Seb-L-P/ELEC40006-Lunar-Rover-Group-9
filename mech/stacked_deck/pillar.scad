@@ -20,7 +20,7 @@
 include <../print/common.scad>
 
 PILLAR_D = 10;      // outer diameter (across flats if hex)
-PILLAR_H = 45;      // height = gap between the two decks
+PILLAR_H = 50;      // height = gap between the two decks (~5 cm apart)
 HOLE     = 2.5;     // Ø2.5 self-tap pilot (use M3_CLEAR=3.4 for threaded rod)
 FLAT     = true;    // hex body (grips better) vs round
 

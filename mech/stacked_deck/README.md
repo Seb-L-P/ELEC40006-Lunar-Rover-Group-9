@@ -13,7 +13,7 @@ plus a **braced coil ring + sensor tray** that screws onto a deck.
 | `stl/deck_half_A.stl` | ×2 | ~112 × 95 mm | front half of a deck (has the motor slots) |
 | `stl/deck_half_B.stl` | ×2 | ~92 × 95 mm | rear half of a deck |
 | `stl/splice.stl` | ×2–4 | 18 × 60 mm | bolts under the seam to join A+B into one deck |
-| `stl/pillar.stl` | ×4 | Ø10 × 45 mm | corner stacking pillar |
+| `stl/pillar.stl` | ×4 | Ø10 × 50 mm | corner stacking pillar (~5 cm deck gap) |
 | `stl/coil_support.stl` | ×1 | ~127 × 91 mm | braced ring (coil) + perfboard tray |
 | `stl/deck_full.stl` | — | 204 × 95 mm | **reference/viewing only — too long to print whole** |
 
@@ -48,7 +48,7 @@ bar. Two identical decks → **either board can be on top**.
 | What | Value | File |
 |---|---|---|
 | Coil diameter | 75 mm (set yours: 70–75) | `coil_support.scad` `COIL_D` |
-| Deck spacing (pillar height) | 45 mm | `pillar.scad` `PILLAR_H` |
+| Deck spacing (pillar height) | 50 mm (~5 cm) | `pillar.scad` `PILLAR_H` |
 | Brace height | 9 mm | `coil_support.scad` `H_BRACE` |
 | Deck thickness | 4 mm | `deck.scad` `DECK_T` |
 | Coil support on which deck | upper (sensors up top) | `stack_assembly.scad` `sup_z` |
