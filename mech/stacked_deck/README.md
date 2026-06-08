@@ -23,9 +23,13 @@ bar. Two identical decks → **either board can be on top**.
 
 ## How it goes together
 
-1. Join `deck_half_A` + `deck_half_B` with 2 `splice` bars (M3) → one deck. Do it twice.
-2. Stand the **4 pillars** between the decks at the corner holes; M3 screws (or
-   threaded rod) through both decks into the pillar ends.
+1. Join `deck_half_A` (front, ~112 mm) + `deck_half_B` (rear, ~92 mm) with 2
+   `splice` bars (M3) → one deck. Do it twice.
+2. Stand the **4 pillars** between the decks at the corner holes. Drive a short
+   **M3 × 8–10 mm screw through each deck's corner hole into the pillar end** —
+   it self-taps into the pillar's Ø2.5 pilot and clamps the deck. (Sturdier
+   option: one M3 threaded rod through deck+pillar+deck with a nut each end —
+   set `HOLE = M3_CLEAR` in `pillar.scad`.)
 3. Screw the **coil support** onto a deck's 4 coil-mount holes (4× M3). The coil
    (~75 mm) drops into the ring and is held by the lip; the **braced rim** stops
    the arm drooping.
