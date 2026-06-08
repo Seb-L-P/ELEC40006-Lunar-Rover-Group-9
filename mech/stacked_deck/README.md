@@ -1,0 +1,56 @@
+# Stacked-deck chassis + coil support
+
+An alternative chassis concept (inspired by the reference rover): **two
+rectangular decks with the board's hole pattern, stacked on 4 corner pillars**,
+plus a **braced coil ring + sensor tray** that screws onto a deck.
+
+![assembly](preview/stack_iso.png)
+
+## One STL per component
+
+| STL | Print qty | Size | Notes |
+|---|---|---|---|
+| `stl/deck_half_A.stl` | ×2 | ~112 × 95 mm | front half of a deck (has the motor slots) |
+| `stl/deck_half_B.stl` | ×2 | ~92 × 95 mm | rear half of a deck |
+| `stl/splice.stl` | ×2–4 | 18 × 60 mm | bolts under the seam to join A+B into one deck |
+| `stl/pillar.stl` | ×4 | Ø10 × 45 mm | corner stacking pillar |
+| `stl/coil_support.stl` | ×1 | ~127 × 91 mm | braced ring (coil) + perfboard tray |
+| `stl/deck_full.stl` | — | 204 × 95 mm | **reference/viewing only — too long to print whole** |
+
+A full deck is **204 mm**, longer than the 200 mm printer, so each deck prints
+as **half A + half B** (both inside the ~15–18 cm target) joined by the splice
+bar. Two identical decks → **either board can be on top**.
+
+## How it goes together
+
+1. Join `deck_half_A` + `deck_half_B` with 2 `splice` bars (M3) → one deck. Do it twice.
+2. Stand the **4 pillars** between the decks at the corner holes; M3 screws (or
+   threaded rod) through both decks into the pillar ends.
+3. Screw the **coil support** onto a deck's 4 coil-mount holes (4× M3). The coil
+   (~75 mm) drops into the ring and is held by the lip; the **braced rim** stops
+   the arm drooping.
+4. Mount your **60 × 20 mm perfboard** (ultrasound + phototransistor) in the
+   tray; the sensors face **down** through the slot.
+
+## Key parameters (all at the top of each `.scad`)
+
+| What | Value | File |
+|---|---|---|
+| Coil diameter | 75 mm (set yours: 70–75) | `coil_support.scad` `COIL_D` |
+| Deck spacing (pillar height) | 45 mm | `pillar.scad` `PILLAR_H` |
+| Brace height | 9 mm | `coil_support.scad` `H_BRACE` |
+| Deck thickness | 4 mm | `deck.scad` `DECK_T` |
+| Coil support on which deck | upper (sensors up top) | `stack_assembly.scad` `sup_z` |
+
+## Notes / honest flags
+- **Sensors are on the top deck** (as requested) — ~50 mm higher off the ground,
+  so the down-facing sensors have a bigger gap to the rock. Drop `sup_z` to the
+  lower deck if scanning range matters more than the top mount.
+- **Weight:** two 4 mm PLA decks + pillars + support ≈ **120–140 g**. If the
+  750 g limit gets tight, thin the decks to 3 mm or add lightening cut-outs.
+- **Cantilever:** the support reaches ~110 mm past the deck edge. The brace
+  handles droop; for extra security add a small skid leg under the tray tip.
+
+## View it
+Open `stack_assembly.scad` in OpenSCAD → **F5** (drag to rotate), or see
+`preview/stack_iso.png`. Re-render all STLs from the `.scad` files with OpenSCAD.

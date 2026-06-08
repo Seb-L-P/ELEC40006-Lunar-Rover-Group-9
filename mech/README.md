@@ -7,6 +7,7 @@ them, and **exactly what we need to order** (with supplier links and prices).
 - 📐 Full design rationale + diagrams → **[`rover_layout.md`](rover_layout.md)**
 - 🧾 Full bill of materials + ordering rules → **[`../hardware/BOM.md`](../hardware/BOM.md)**
 - 🖨️ How to print the parts → **[`print/README.md`](print/README.md)**
+- 🧱 Alternative **stacked-deck chassis** concept (two decks on pillars + coil ring) → **[`stacked_deck/`](stacked_deck/README.md)**
 
 ## The whole rover
 
