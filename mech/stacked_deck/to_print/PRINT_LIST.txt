@@ -4,7 +4,7 @@ Group 9, ELEC40006
 Printer: 200 x 200 x 200 mm, PLA. Every part fits well inside the bed.
 
 
-FILES TO PRINT  (3 files, 8 parts total = one complete rover / two stacked decks)
+FILES TO PRINT  (4 files, 9 parts total = one complete rover / two stacked decks)
 ================================================================================
 
   File                 Qty   Size            Notes
@@ -15,10 +15,9 @@ FILES TO PRINT  (3 files, 8 parts total = one complete rover / two stacked decks
                                                 slicer) so the overlap ledge
                                                 sits flat on the bed
   pillar.stl            4    O10 x 50 mm     corner stacking pillars
+  coil_support.stl      1    ~127 x 91 mm    coil ring + sensor perfboard tray
 
-  TOTAL: 8 parts
-
-  (Coil support is NOT being printed in this batch - excluded on purpose.)
+  TOTAL: 9 parts
 
 
 WHY TWO HALVES PER DECK
@@ -48,4 +47,5 @@ ASSEMBLY (for reference - not needed to print)
   - 2 decks : each = deck_half_A + deck_half_B overlapped, 2x M3 screws.
   - 4 pillars between the decks : one M3 screw through each deck corner hole
     self-taps into the pillar end.
+  - coil_support : screws onto one deck with 4x M3.
   Fasteners needed : M3 screws ~8-10 mm (self-tap into PLA) + a few M3 nuts.
